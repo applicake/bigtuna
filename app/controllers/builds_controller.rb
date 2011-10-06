@@ -3,7 +3,10 @@ class BuildsController < ApplicationController
   respond_to :js, :only => :show
 
   def show
-
+    respond_to do |format|
+      format.html
+      format.json { render :json => @build.to_json }
+    end
   end
 
   def destroy
